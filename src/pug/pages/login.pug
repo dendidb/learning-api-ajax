@@ -1,0 +1,12 @@
+extends ../templates/default.pug
+
+//- Head
+block siteHeader
+  -
+    siteTitle = 'Login';
+    login = true;
+
+//- Body
+block siteContent
+  //- login
+  include login/login.pug

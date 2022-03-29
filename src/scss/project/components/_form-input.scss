@@ -1,0 +1,115 @@
+/* ==========================================================================
+   Components Form Input
+   ========================================================================== */
+
+.form-input {
+  padding: 32px 40px 90px;
+  min-height: 675px;
+  position: relative;
+  @include shadow(24);
+  @include radius(16);
+  &__logo {
+    text-align: right;
+    margin-bottom: 32px;
+  }
+  &__name {
+    margin-bottom: 32px;
+  }
+  &__type {
+    font-weight: fw(regular);
+    margin-bottom: 0;
+    color: color(grey, 8);
+  }
+  &__label {
+    margin-bottom: 0;
+    color: color(grey, 1);
+  }
+  &__head {
+    margin-bottom: 24px;
+  }
+  &__title {
+    margin-bottom: 8px;
+    color: color(grey, 1);
+  }
+  &__note {
+    margin-bottom: 0;
+    color: color(grey, 3);
+    @include font-size(label);
+  }
+  &__error {
+    color: color(red, 1);
+    background-color: color(red, 4);
+    padding: 10px 36px 10px 56px;
+    position: relative;
+    margin-bottom: 16px;
+    @include radius(8);
+    &__btn {
+      position: absolute;
+      top: 50%;
+      left: 16px;
+      transform: translateY(-50%);
+      background-color: transparent;
+      padding: 0;
+      border: 0;
+      outline: 0;
+      color: color(red, 1);
+    }
+    &__txt {
+      margin-bottom: 0;
+      @include font-size(label);
+    }
+    .fi-close {
+      font-size: 2.4rem;
+      display: block;
+    }
+  }
+  &__body {
+  }
+  &__form {
+    margin-bottom: 32px;
+    padding-top: 8px;
+  }
+  &__foot {
+    text-align: center;
+    position: absolute;
+    left: 40px;
+    right: 40px;
+    bottom: 32px;
+  }
+  &__info {
+    margin-bottom: 0;
+    text-align: center;
+    @include font-size(label);
+    a {
+      text-decoration: none;
+      color: color(red, 1);
+      transition: all .3s ease;
+      &:hover {
+        color: color(red, 2);
+      }
+    }
+  }
+  &__copyright {
+    margin-bottom: 0;
+    color: color(grey, 8);
+    @include font-size(small);
+  }
+  &__success {
+    text-align: center;
+    &__icon {
+      margin-bottom: 24px;
+    }
+    &__title {
+      color: color(red, 1);
+      margin-bottom: 12px;
+    }
+    &__desc {
+      margin-bottom: 0;
+    }
+    .fi-checklist {
+      font-size: 6.8rem;
+      display: block;
+      color: color(orange, 2);
+    }
+  }
+}

@@ -1,0 +1,35 @@
+-
+  data = {
+    alert: true,
+    type: 'eCommerce',
+    label: 'API Integration Simulation',
+    title: 'Masuk',
+    note: 'Daftar dengan email kamu untuk memulai simulasi Integrasi API',
+    btnTxt: 'Masuk',
+    info: 'Belum memiliki akun? <a href="register.html">Daftar</a>',
+    copyright: '&copy; 2021-2022 Bilik Imaji Kreasi',
+    input: [
+      {
+        label: 'Email',
+        type: 'text',
+        class: 'fi-single-line',
+        target: 'alertEmail',
+        id: 'email',
+        name: 'email',
+        required: 'Email tidak boleh kosong!',
+        invalid: 'Email tidak valid'
+      },
+      {
+        label: 'Password',
+        type: 'password',
+        class: 'fi-single-line',
+        target: 'alertPassword',
+        id: 'password',
+        name: 'password',
+        required: 'Password tidak boleh kosong!',
+        invalid: 'Password tidak valid'
+      }
+    ]
+  }
+
+include ../../layouts/form.pug

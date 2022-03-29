@@ -1,0 +1,30 @@
+/* ==========================================================================
+   Elements Btn
+   ========================================================================== */
+
+.btn {
+  border: 0;
+  outline: 0;
+  text-decoration: none;
+  color: color(white);
+  font-weight: fw(bold);
+  padding: 14px 24px;
+  transition: all .3s ease;
+  background-color: color(red, 1);
+  @include font-size(h4);
+  @include radius(8);
+  &:hover {
+    background-color: color(red, 2);
+  }
+  &--primary {
+    width: 100%;
+  }
+  &--secondary {
+    display: inline-block;
+    vertical-align: middle;
+    min-width: 120px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    text-align: center;
+  }
+}
