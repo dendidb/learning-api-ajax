@@ -9,6 +9,7 @@ import {
   WindowScroll,
   Footer,
   Products,
+  Header,
   ProductsDetail,
   AddToCart,
   Cart,
@@ -48,6 +49,7 @@ const App = (() => {
       ProductsDetail.init();
       AddToCart.init();
       Cart.init();
+      Header.init();
       Login.init();
       Register.init();
     })(jQuery);

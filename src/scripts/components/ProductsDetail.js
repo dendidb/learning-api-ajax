@@ -59,23 +59,18 @@ const ProductsDetail = (() => {
                 ${_data.detail}
               </div>
               <div class="products-detail__tocol">
-                <h5 class="products-detail__tocol__name">${_data.shop_name}</h5>
-                <h6 class="products-detail__tocol__location">${_data.location}</h6>
+              <div class="products-detail__tocol__image">
+                <img class="products-detail__tocol__image__el" src=${_data.image} alt=${_data.shop_name} />
+              </div>
+              <div class="products-detail__tocol__txt">
+                  <h5 class="products-detail__tocol__name">${_data.shop_name}</h5>
+                  <h6 class="products-detail__tocol__location">${_data.location}</h6>
+                </div>
               </div>
             </div>
             <!--products-detail-form-->
             <div class="products-detail__form">
               <form class="fi-form js-form" action="#" method="get">
-                <div class="fi-row">
-                  <label class="fi-label" for="nama">Nama</label>
-                  <input class="fi-single-line js-name" type="text" id="name" name="name" data-target="alertName" autocomplete="off" />
-                  <p class="fi-alert" id="alertName" data-req="Name is required!"></p>
-                </div>
-                <div class="fi-row">
-                  <label class="fi-label" for="phone">No. Handphone</label>
-                  <input class="fi-single-line js-phone number-pnly" type="text" id="phone" name="phone" data-target="alertPhone" autocomplete="off" />
-                  <p class="fi-alert" id="alertPhone" data-req="Phone Number is required!" data-invalid="Number Only" data-invalid-phone="Phone Number Invalid"></p>
-                </div>
                 <div class="fi-row">
                   <label class="fi-label" for="total">Jumlah</label>
                   <button class="sub btn" type="button">-</button>
@@ -87,7 +82,7 @@ const ProductsDetail = (() => {
                   <input class="fi-single-line js-note" type="text" id="notes" name="notes" data-target="alertNotes" autocomplete="off" />
                   <p class="fi-alert" id="alertNotes" data-req="Notes is required!"></p>
                 </div>
-                <button class="btn btn--submit js-add-to-cart" type="submit">Tambahkan Keranjang</button>
+                <button class="btn btn--submit js-add-to-cart" type="button">Tambahkan Keranjang</button>
               </form>
             </div>
             <!--products-detail-cart-->

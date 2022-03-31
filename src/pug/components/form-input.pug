@@ -7,6 +7,7 @@
   .form-input__logo
     =`\n`
     img.form-input__logo__el(src='assets/img/logo/axtb-fed.svg', alt='axtbFed')/
+    =`\n`
   .form-input__name
     h3.form-input__type !{data.type}
     h3.form-input__label !{data.label}
@@ -30,7 +31,7 @@
           each val in data.input
             include ../components/form-row.pug
           ='\n'
-          button.btn.btn--primary(type='submit') !{data.btnTxt}
+          button.btn.btn--primary(type='button' page=data.page) !{data.btnTxt}
         p.form-input__info !{data.info}
       else
         .form-input__success

@@ -13,7 +13,7 @@ const Products = (() => {
 
   // --- handleProduct
   const handleProduct = () => {
-
+    
     $.ajax({
       url: 'https://x-api.alpha-x.id/v1/product',
       type: 'GET',

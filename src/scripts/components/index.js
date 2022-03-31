@@ -8,6 +8,7 @@ import Footer from "./Footer";
 import ProductsDetail from "./ProductsDetail";
 import Products from "./Products";
 import AddToCart from "./AddToCart";
+import Header from "./Header";
 import Cart from "./Cart";
 import Login from "./Login";
 import Register from "./Register";
@@ -19,6 +20,7 @@ export {
   Products,
   AddToCart,
   Cart,
+  Header,
   Login,
   Register
 };

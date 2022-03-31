@@ -1,14 +1,14 @@
 {
-  "name": "template",
+  "name": "learning-api-ajax",
   "version": "1.0.0",
-  "description": "Template Sample",
+  "description": "Learning API Ajax",
   "main": "gulpfile.babel.js",
   "scripts": {
     "start": "gulp",
     "build": "gulp build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "RZF Software",
+  "author": "Dendi Budiansyah",
   "license": "ISC",
   "dependencies": {
     "@babel/core": "^7.15.0",
