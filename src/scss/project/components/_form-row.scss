@@ -5,8 +5,13 @@
 .fi {
   &-row {
     margin-bottom: 24px;
+    position: relative;
     &:last-of-type {
       margin-bottom: 32px;
+    }
+    .error & {
+      opacity: 1;
+      visibility: visible;
     }
   }
   &-label {
@@ -29,5 +34,17 @@
     color: color(red, 1);
     font-weight: fw(medium);
     @include font-size(small);
+    visibility: hidden;
+    position: absolute;
+    left: 0;
+    bottom: -18px;
+    opacity: 0;
+    transform: translateX(-8px);
+    transition: all 0.35s ease;
+    .error & {
+      opacity: 1;
+      transform: none;
+      visibility: visible;
+    }
   }
 }

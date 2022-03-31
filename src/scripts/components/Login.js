@@ -52,9 +52,9 @@ const Login = (() => {
         const password = $('#password').val();
 
         if (page == 'login') {
-          console.log({
-            email, password
-          })
+          // console.log({
+          //   email, password
+          // })
 
           $.ajax({
             url: 'https://x-api.alpha-x.id/v1/login',
@@ -64,7 +64,7 @@ const Login = (() => {
             },
             dataType: 'JSON',
             success: function(data) {
-              // console.log(data);
+              console.log(data);
               if (data.code == 203) {
                 $('.form-input__error__txt').text(data.message);
                 $('.form-input__error').addClass('show');
