@@ -8,10 +8,10 @@ import Footer from "./Footer";
 import ProductsDetail from "./ProductsDetail";
 import Products from "./Products";
 import AddToCart from "./AddToCart";
-import Header from "./Header";
 import Cart from "./Cart";
 import Login from "./Login";
 import Register from "./Register";
+import Header from "./Header";
 
 export {
   WindowScroll,
@@ -20,7 +20,7 @@ export {
   Products,
   AddToCart,
   Cart,
-  Header,
   Login,
-  Register
+  Register,
+  Header
 };

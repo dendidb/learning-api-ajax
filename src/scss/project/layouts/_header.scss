@@ -50,7 +50,6 @@
     text-decoration: none;
     display: inline-block;
     vertical-align: middle;
-    margin-right: 24px;
     position: relative;
     &__total {
       position: absolute;
@@ -70,10 +69,14 @@
       display: block;
     }
   }
+  &__login {
+    margin-left: 24px;
+  }
   &__profile {
     display: inline-block;
     vertical-align: middle;
     cursor: pointer;
+    margin-left: 16px;
     &:hover {
       #{$h}__dropdown {
         opacity: 1;

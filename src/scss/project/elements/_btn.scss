@@ -5,26 +5,33 @@
 .btn {
   border: 0;
   outline: 0;
+  padding: 0;
   text-decoration: none;
-  color: color(white);
   font-weight: fw(bold);
-  padding: 14px 24px;
   transition: all .3s ease;
-  background-color: color(red, 1);
+  background-color: transparent;
   @include font-size(h4);
   @include radius(8);
-  &:hover {
-    background-color: color(red, 2);
-  }
   &--primary {
+    color: color(white);
+    padding: 14px 24px;
     width: 100%;
+    background-color: color(red, 1);
+    &:hover {
+      background-color: color(red, 2);
+    }
   }
   &--secondary {
+    color: color(white);
     display: inline-block;
     vertical-align: middle;
     min-width: 120px;
-    padding-top: 6px;
-    padding-bottom: 6px;
+    padding: 8px 24px;
     text-align: center;
+    background-color: color(red, 1);
+    @include font-size(h6-b);
+    &:hover {
+      background-color: color(red, 2);
+    }
   }
 }

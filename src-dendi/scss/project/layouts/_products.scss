@@ -1,0 +1,35 @@
+/* ==========================================================================
+   Layouts Products
+   ========================================================================== */
+
+.products {
+  $p: &;
+  padding-bottom: 48px;
+  &__head {
+    @include clearfix;
+    margin-bottom: 14px;
+  }
+  &__label {
+    float: left;
+    margin-bottom: 0;
+    font-weight: fw(bold);
+    color: color(grey, 1);
+  }
+  &__filter {
+    float: right;
+  }
+  &__list {
+    font-size: 0;
+    margin-left: -10px;
+    margin-right: -10px;
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+  }
+  #{$p} {
+    &__item {
+      width: 20%;
+      padding: 10px;
+    }
+  }
+}

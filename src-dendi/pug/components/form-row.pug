@@ -1,0 +1,54 @@
+//-------------------------------------------------------------------------------
+  @name: Form Row
+  -------------------------------------------------------------------------------//
+
+//- Form Row
+.fi-row
+  ='\n'
+  label(class='fi-label' for=val.id) !{val.label}
+  //- fi upload
+  if val.id === 'upload'
+    ='\n'
+    .fi-upload
+      ='\n'
+      input(type=val.type class=val.class id=val.id name=val.name placeholder=val.placeholder data-target=val.target autocomplete='off')/
+      ='\n'
+      p.fi-upload__text !{val.placeholder}
+      ='\n'
+      button(type='button').btn.btn--upload Upload
+  //- fi multiline
+  else if val.class === 'fi-multiline'
+    ='\n'
+    textarea(class=val.class id=val.id name=val.name placeholder=val.placeholder data-target=val.target)
+  //- fi dropdown
+  else if val.id === 'dropdown'
+    .fi-dropdown
+      ='\n'
+      input(type=val.type class=val.class id=val.id name=val.name placeholder=val.placeholder data-target=val.target autocomplete='off')/
+      ='\n'
+      p.fi-dropdown__text
+      ul.fi-dropdown-menu
+        each valDrop in val.dropdown
+          li.fi-dropdown-item(data-value=valDrop.value) !{valDrop.text}
+  //- fi default
+  else
+    ='\n'
+    input(type=val.type class=val.class id=val.id name=val.name placeholder=val.placeholder data-target=val.target autocomplete='off')/
+    ='\n'
+
+  //- element fi subdomain
+  if val.id === 'subdomain'
+    button(type='button' class='btn btn--primary') Cek Domain
+
+  //- element fi order
+  if val.id === 'order'
+    if val.desc
+      p.fi-desc !{val.desc}
+
+  //- element fi val & time
+  if val.icon !== undefinend
+    ='\n'
+    i(class=val.icon)
+
+  //- error validation
+  p.fi-alert(id=val.target data-req=val.required data-invalid=val.invalid data-invalid-phone=val.invalidPhone)

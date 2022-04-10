@@ -6,7 +6,8 @@
 
 // --- utilities
 import {
-  Validation
+  Validation,
+  Session
 } from 'utilities';
 
 // Form Validation
@@ -30,100 +31,89 @@ const ElementEvents = ['input', 'blur'];
 
 const Login = (() => {
 
-  // Handle Run Validation
+  // --- Handle Run Validation
   const handleRunValidation = () => {
     Validation.config(ElementEvents, ElementSelector);
   }
 
-  // Handle Click Validation
+  // --- Handle Click Validation
   const handleClickValidation = () => {
-    $('button[type="button"]').on('click', (e) => {
-      e.preventDefault();
+    $('.js-auth-login button[type="submit"]').on('click', (e) => {
       $.each(ElementSelector, (i, v) => {
         $('#'+v.id).blur();
       });
-      
-      if ($('.error').length > 0) {
-        e.preventDefault();
 
-      } else {
-        const page = e.currentTarget.attributes.page.value;
-        const email = $('#email').val();
-        const password = $('#password').val();
+      if ($('.error').length === 0) {
+        handleCheckData();
+      }
+      e.preventDefault();
+    });
+  }
 
-        if (page == 'login') {
-          // console.log({
-          //   email, password
-          // })
+  // --- HandleCheckData
+  const handleCheckData = () => {
+    const _email = $('#email').val();
+    const _password = $('#password').val();
+    $.ajax({
+      url: 'https://x-api.alpha-x.id/v1/login',
+      type: 'POST',
+      dataType: 'JSON',
+      data: {
+        email: _email,
+        password: _password
+      },
+      beforeSend: () => {
+        // set loader
+        $('.js-auth-login button[type="submit"]').html('<span class="lds-ring"><span></span><span></span><span></span><span></span></span> Mengirim');
+      },
+      success: (response) => {
 
-          $.ajax({
-            url: 'https://x-api.alpha-x.id/v1/login',
-            type: 'POST',
-            data: {
-              email, password
-            },
-            dataType: 'JSON',
-            success: function(data) {
-              console.log(data);
-              if (data.code == 203) {
-                $('.form-input__error__txt').text(data.message);
-                $('.form-input__error').addClass('show');
-
-                // stop(return) function rendering di sini
-                // return;
-              }
-              localStorage.setItem('user', JSON.stringify({
-                email, password}));
-
-              // coba redirect ke product list
-              window.location.href = 'http://localhost:3000/'
-            }
-          });
-        } else {
-          $.ajax({
-            url: 'https://x-api.alpha-x.id/v1/registration',
-            type: 'POST',
-            data: {
-              email, password
-            },
-            dataType: 'JSON',
-            success: function(data) {
-              console.log(data);
-              if (data.code == 400) {
-                $('.form-input__error__txt').text('Gagal');
-                $('.form-input__error').addClass('show');
-              }
-            }
-          });
-        };
-
-
-        // location.href = "http://localhost:3018/register-berhasil.html";
-        // set loaders
-        // $(e.currentTarget).addClass('loading').html('<span class="loaders"><span></span><span></span><span></span><span></span></span>Mengirim');
-
-        // set notif error
-        // $('.contact-form .fi-status').html('<p class="fi-status-error">Periksa kembali dan harap lengkapi semua formulir</p>');
-
-        // set notif success
-        // $('.contact-form .fi-status').html('<p class="fi-status-success"><i class="fi fi-check-circle"></i>Pesan berhasil dikirim, kami akan segera memproses pesan Anda</p>');
-
-        // setTimeout(() => {
-          // reload
-          // location.reload();
-        // }, 3000);
-
-        // e.preventDefault();
-
+        const _data = response;
+        if (_data.code === 203) {
+          $('.form-input__error__txt').text(_data.message);
+          $('.form-input__error').show(0);
+          // remove loader
+          $('.js-auth-login button[type="submit"]').html('Masuk');
+        } else if (_data.code === 200) {
+          // set session
+          Session.set('userData', JSON.stringify(_data.data));
+          // redirect page
+          location.href = "http://localhost:3000/index.html";
+        }
+      },
+      error: (response) => {
+        alert('Data Gagal di proses!');
       }
     });
   }
 
+  // --- HandleCheckSession
+  const handleCheckSession = () => {
+    const _userData = JSON.parse(Session.get('userData'));
+    if (_userData) {
+      if (_userData.logged) {
+        location.href = "http://localhost:3000/index.html";
+      }
+    } else {
+      $('.js-main-site').removeClass('auth--hide');
+    }
+  }
 
-  // init
+  // --- HandleCloseAlert
+  const handleCloseAlert = () => {
+    $('.js-form-input-error').on('click', (e) => {
+      $(e.currentTarget).parents('.form-input__error').hide(0);
+    });
+  }
+
+  // --- init
   const init = () => {
-    handleRunValidation();
-    handleClickValidation();
+    if ($('.js-auth-login').length) {
+      handleCloseAlert();
+      handleRunValidation();
+      handleClickValidation();
+      handleCheckSession();
+    }
   }
 
   return {

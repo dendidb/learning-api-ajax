@@ -5,76 +5,117 @@
 
 // --- utilities
 import {
-  Currency
+  Currency,
+  Session
 } from 'utilities';
 
 const Cart = (() => {
 
+  const _userData = JSON.parse(Session.get('userData'));
+
   // handleCart
   const handleCart = () => {
-    $('.js-check-cart').on('click', (e) => {
-      const _phone = $('.js-phone').val();
+    if (_userData) {
+      if (_userData.logged) {
+        const _phone = '085222433981';
+        $.ajax({
+          url: `https://x-api.alpha-x.id/v1/order-cart`,
+          type: 'POST',
+          data: {
+            'phone': _phone
+          },
+          dataType: 'JSON',
+          success: function(data) {
+            if (data.code === 200) {
+              const _data = data.data;
+              const _totalProduct = _data.product_list.length;
 
-      $.ajax({
-        url: `https://x-api.alpha-x.id/v1/order-cart`,
-        type: 'POST',
-        data: {
-          'phone': _phone
-        },
-        dataType: 'JSON',
-        success: function(data) {
-          if (data.code === 200) {
-            const _data = data.data;
-            const _name = _data.name;
-            let _cartItem = '';
+              let _cartItem = '';
+              let _cartSummary = '';
 
-            // insert cart item
-            $.each(_data.product_list, (i, v) => {
+              // insert cart item
+              $.each(_data.product_list, (i, v) => {
 
-              // set discount
-              let _strDiscount = `<h5 class="cart__price">${Currency.rp(v.price, 'Rp. ')}</h5`;
-              if (v.discount !== 0) {
-                const _totalDiscount = v.discount * v.price / 100;
-                const _priceDiscount = v.price - _totalDiscount;
-                _strDiscount = `<div class="cart__price">
-                                  <span class="cart__price__discount-percent">${v.discount}%</span>
-                                  <s class="cart__price__regular">${Currency.rp(v.price, 'Rp. ')}</s>
-                                  <span class="cart__price__discount">${Currency.rp(_priceDiscount, 'Rp. ')}</span>
-                                </div>`;
-              }
+                // set discount
+                let _strDiscount = `<span class="cart__discount-price">${Currency.rp(v.price, 'Rp. ')}</span>`;
+                if (v.discount !== 0) {
+                  const _totalDiscount = v.discount * v.price / 100;
+                  const _priceDiscount = v.price - _totalDiscount;
+                  _strDiscount = `<div class="cart__price">
+                                    <span class="cart__discount-percent">${v.discount}%</span>
+                                    <s class="cart__regular-price">${Currency.rp(v.price, 'Rp. ')}</s>
+                                    <span class="cart__discount-price">${Currency.rp(_priceDiscount, 'Rp. ')}</span>
+                                  </div>`;
+                }
 
-              _cartItem += `<div class="cart__item">
-                              <div class="cart__top">
-                                <div class="cart__img">
-                                  <img class="cart__img__el" src="${v.image}" alt="${v.name}" />
+                // set cart item
+                _cartItem += `<div class="cart__item">
+                                <div class="cart__tocol">
+                                  <h5 class="cart__tocol__name">Indah Jaya Kaos</h5>
+                                  <h4 class="cart__tocol__location">Bandung</h4>
                                 </div>
-                                <div class="cart__txt">
-                                  <h3 class="cart__title">${v.name}</h3>
-                                  ${_strDiscount}
-                                  <h6 class="cart__total">Total ${v.total}</h6>
+                                <div class="cart__top">
+                                  <div class="cart__img">
+                                    <img class="cart__img__el" src="${v.image}" alt="${v.name}" />
+                                  </div>
+                                  <div class="cart__txt">
+                                    <h4 class="cart__name">${v.name}</h4>
+                                    <div class="cart__price">
+                                      ${_strDiscount}
+                                    </div>
+                                  </div>
                                 </div>
-                              </div>
-                              <div class="cart__bottom">
-                                <p class="cart__desc">${v.note}</p>
-                              </div>
-                            </div>`;
+                                <div class="cart__bottom">
+                                  <p class="cart__note">${v.note}</p>
+                                  <div class="cart__action">
+                                    <button class="cart__delete btn" type="button">
+                                      <i class="fi fi-trash"></i></button>
+                                    <div class="cart__qty">
+                                      <button class="fi-sub btn js-qty-sub" type="button">-</button>
+                                      <input class="fi-qty js-total" type="number" value="${v.total}" min="1" max="3">
+                                      <button class="fi-add btn js-qty-add" type="button">+</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>`;
 
-            });
-            $('.cart__list').append(_cartItem);
+              });
+              $('.cart__list').append(_cartItem);
 
-            // insert name
-            $('.cart__name').text(_name);
+              // set cart summary
+              _cartSummary += `<div class="cart__summary">
+                                <h4 class="cart__summary__title">Ringkasan belanja</h4>
+                                <ul class="cart__summary__list">
+                                  <li class="cart__summary__item">
+                                    <h6 class="cart__summary__name">Total Harga (${_totalProduct} barang)</h6>
+                                    <h6 class="cart__summary__total">Rp375.000</h6>
+                                  </li>
+                                  <li class="cart__summary__item">
+                                    <h6 class="cart__summary__name">Total Diskon Barang</h6>
+                                    <h6 class="cart__summary__total">Rp45.000</h6>
+                                  </li>
+                                  <li class="cart__summary__item">
+                                    <h6 class="cart__summary__name">Total Harga</h6>
+                                    <h6 class="cart__summary__total">Rp330.000</h6>
+                                  </li>
+                                </ul>
+                                <button class="btn btn--secondary" type="button">Beli (${_totalProduct})</button>
+                              </div>`;
+              $('.cart__right').append(_cartSummary);
+            }
           }
-        }
-      });
-
-      e.preventDefault();
-    });
+        });
+      }
+    } else {
+      location.href = "http://localhost:3000/login.html";
+    }
   }
 
   // init
   const init = () => {
-    handleCart();
+    if ($('.cart').length) {
+      handleCart();
+    }
   }
 
   return {

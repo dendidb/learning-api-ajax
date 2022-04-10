@@ -1,0 +1,88 @@
+/* ==========================================================================
+   Components Cart Item
+   ========================================================================== */
+
+.cart {
+  &__tocol {
+    margin-bottom: 16px;
+    &__name {
+      @include font-size(label);
+      margin-bottom: 0px;
+    }
+    &__location {
+      @include font-size(label);
+      margin-bottom: 0;
+      color: color(grey, 8);
+      font-weight: fw(regular);
+    }
+  }
+  &__top {
+    display: flex;
+    margin-bottom: 16px;
+  }
+  &__img {
+    flex: 0 0 120px;
+    height: 120px;
+    margin-right: 36px;
+    &__el {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+  }
+  &__txt {
+    flex: 1;
+  }
+  &__name {
+    font-weight: fw(regular);
+    margin-bottom: 12px;
+  }
+  &__price {
+    display: flex;
+    align-items: center;
+  }
+  &__discount-percent {
+    min-width: 35px;
+    text-align: center;
+    padding-left: 4px;
+      padding-right: 4px;
+    background-color: color(grey, d);
+    color: color(red, 1);
+    font-weight: fw(bold);
+    margin-right: 8px;
+    @include font-size(label);
+    @include radius(4);
+  }
+  &__regular-price {
+    @include font-size(label);
+    color: color(grey, 8);
+    margin-right: 14px;
+  }
+  &__discount-price {
+    @include font-size(h6);
+    color: color(grey, 3);
+    font-weight: fw(bold);
+  }
+  &__note {
+    color: color(grey, 1);
+    margin-bottom: 0;
+    @include font-size(label);
+  }
+  &__bottom {
+    display: flex;
+    align-items: center;
+  }
+  &__action {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+  }
+  &__delete {
+    margin-right: 40px;
+    .fi-trash {
+      display: block;
+      font-size: 2.4rem;
+    }
+  }
+}

@@ -3,74 +3,99 @@
    ========================================================================== */
 
 .cart {
-  &__form {
-    margin-bottom: 40px;
-  }
-  &__item {
-    padding-top: 24px;
-    padding-bottom: 24px;
-    border-bottom: 1px solid color(grey, 8);
-  }
-  &__top {
+  $c: &;
+  padding-bottom: 48px;
+  .container {
     display: flex;
-    margin-bottom: 24px;
   }
-  &__img {
-    width: 100px;
-    height: 100px;
-    margin-right: 24px;
-    &__el {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+  &__left {
+    flex: 1;
+    margin-right: 48px;
+  }
+  &__right {
+    margin-left: auto;
+    margin-top: 24px;
+  }
+  &__title {
+    @include font-size(h4);
+    color: color(grey, 1);
+    padding-bottom: 12px;
+    margin-bottom: 4px;
+    border-bottom: 2px solid color(grey, d);
+  }
+  #{$c} {
+    &__item {
+      padding-top: 24px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid color(grey, d);
     }
   }
-  &__total {
-    margin-bottom: 0;
-  }
-  &__price {
-    margin-bottom: 8px;
-    &__discount-percent {
-      margin-right: 8px;
-      padding: 4px;
-      background-color: pink;
-      color: red;
-      font-weight: fw(bold);
-      margin-right: 8px;
-      @include radius(1);
+  &__summary {
+    $cs: &;
+    width: 347px;
+    padding: 24px 24px 32px;
+    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    &__title {
+      margin-bottom: 24px;
     }
-    &__regular {
-      margin-right: 8px;
-      color: color(grey, 8);
+    &__list {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 0;
     }
-  }
-  &__total {
-    font-weight: fw(regular);
-  }
-  &__txt {
-    flex-grow: 1;
-  }
-  &__desc {
-    margin-bottom: 0;
-    color: color(grey, 8);
-  }
-  .fi {
-    &-row {
+    &__item {
       margin-bottom: 16px;
-      .sub,
-      .add {
-        font-weight: fw(bold);
+      display: flex;
+      &:last-child {
+        margin-bottom: 24px;
+        padding-top: 8px;
+        border-top: 1px solid color(grey, d);
+        #{$cs} {
+          &__name,
+          &__total {
+            font-weight: fw(bold);
+          }
+        }
       }
     }
-    &-label {
-      display: block;
-      margin-bottom: 8px;
+    &__name,
+    &__total {
+      margin-bottom: 0;
+      font-weight: fw(regular);
     }
-    &-single-line {
-      width: 100%;
-      height: 40px;
-      border-radius: 4px;
-      border: 1px solid color(grey, 8);
+    &__total {
+      margin-left: auto;
+    }
+    .btn--secondary {
+      min-width: 100%;
+    }
+  }
+  .fi {
+    &-sub,
+    &-add {
+      @include font-size(h5);
+      border: 1px solid color(grey, c);
+      border-radius: 2px;
+      width: 16px;
+      line-height: 1.4rem;
+      color: color(grey, 8);
+      font-weight: fw(regular);
+      display: inline-block;
+      vertical-align: middle;
+    }
+    &-qty {
+      @include font-size(label);
+      width: 16px;
+      padding: 0;
+      border: 0;
+      line-height: 1;
+      background-color: transparent;
+      text-align: center;
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 4px;
+      margin-right: 4px;
     }
   }
 }

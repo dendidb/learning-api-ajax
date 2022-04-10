@@ -7,9 +7,9 @@ import {
 // --- components
 import {
   WindowScroll,
+  Header,
   Footer,
   Products,
-  Header,
   ProductsDetail,
   AddToCart,
   Cart,
@@ -44,12 +44,12 @@ const App = (() => {
 
       // --- Project
       WindowScroll.init();
+      Header.init();
       Footer.init();
       Products.init();
       ProductsDetail.init();
       AddToCart.init();
       Cart.init();
-      Header.init();
       Login.init();
       Register.init();
     })(jQuery);

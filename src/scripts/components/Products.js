@@ -13,12 +13,12 @@ const Products = (() => {
 
   // --- handleProduct
   const handleProduct = () => {
-    
+
     $.ajax({
       url: 'https://x-api.alpha-x.id/v1/product',
       type: 'GET',
       dataType: 'JSON',
-      success: function(data) {
+      success: (data) => {
         if (data.code === 200) {
           let _listProduct = '';
           $.each(data.data, (i, v) => {
@@ -38,6 +38,11 @@ const Products = (() => {
             let _star = `<i class="fi fi-star"></i>`;
             for (let i=1; i < Math.round(v.review); i++) {
               _star += `<i class="fi fi-star"></i>`;
+            }
+            if (Math.round(v.review) < 5) {
+              for (let i = Math.round(v.review); i < 5; i++) {
+                _star += `<i class="fi fi-star-o"></i>`;
+              }
             }
 
             _listProduct += `<div class="products__item">
@@ -64,15 +69,18 @@ const Products = (() => {
           });
           $('.products__list').html(_listProduct);
         }
+      },
+      error: (data) => {
+        alert('Data Gagal di proses!');
       }
     });
   }
 
   // --- init
   const init = () => {
-    // handleSet();
-    handleProduct();
-
+    if ($('.products__list').length) {
+      handleProduct();
+    }
   }
 
   // --- return

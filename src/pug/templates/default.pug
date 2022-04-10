@@ -1,8 +1,8 @@
 include ../config/config.pug
 
-block siteHeader
 doctype html
 html(lang='en')
+  block siteHeader
   head
     meta(charset='utf-8')/
     meta(http-equiv='refresh', content=timeRefresh)/
@@ -128,18 +128,16 @@ html(lang='en')
 
   body(class=holdTransitionClass)
 
-    if !login && !register
-      //header
-      include ../layouts/header.pug
+    //- header
+    include ../layouts/header.pug
 
     //main-site
     .main-site.main-site--hide.js-main-site
       //- site-content
       block siteContent
 
-    if !login && !register
-      //footer
-      include ../layouts/footer.pug
+    //- footer
+    include ../layouts/footer.pug
 
     ='\n\n'
     if schema.enable

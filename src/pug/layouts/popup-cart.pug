@@ -1,0 +1,20 @@
+//-------------------------------------------------------------------------------
+  @name: popup-cart
+  -------------------------------------------------------------------------------//
+
+//popup-cart
+.popup-cart
+  .container
+    h3.popup-cart__title Berhasil Ditambahakan
+    .popup-cart__item
+      .popup-cart__item__img
+        ='\n'
+        img.popup-cart__item__img__el(src='', alt='')/
+      h6.popup-cart__item__title
+      ='\n'
+      a.btn.btn--secondary.popup-cart__item__link(href='cart.html') Lihat Keranjang
+  ='\n'
+  button.popup-cart__close.js-popup-cart-close(type='button')
+    ='\n'
+    i.fi.fi-close
+///popup-cart

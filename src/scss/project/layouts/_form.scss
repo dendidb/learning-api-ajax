@@ -3,6 +3,10 @@
    ========================================================================== */
 
 .form {
+  transition: all .3s ease;
+  .auth--hide & {
+    opacity: 0;
+  }
   &__wrapper {
     font-size: 0;
   }
