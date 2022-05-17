@@ -1,0 +1,36 @@
+//-------------------------------------------------------------------------------
+  @name: Payment
+  -------------------------------------------------------------------------------//
+
+//payment
+.payment
+  .container
+    .payment__wrapper
+      .payment__img
+        ='\n'
+        img.payment__img__el(src='assets/img/bg/'+payment.img alt=payment.alt)/
+        ='\n'
+      .payment__txt__detail
+        h3.payment__txt__detail__ttl
+          | !{payment.title}
+        p.payment__txt__detail__dsc
+          | !{payment.desc}
+        each val in payment.list
+          - data = val
+            .payment__row
+              .payment__img__bank
+                ='\n'
+                img.payment__img__bank-el(src='assets/img/dummy/'+val.imgBank alt=val.altBank)/
+                ='\n'
+              .payment__txt
+                h5.payment__txt__number
+                  | !{val.number}
+                p.payment__txt__name
+                  | !{val.name}
+    .payment__btn
+      ='\n'
+      a.btn.btn--primary(href=payment.btnTo) !{payment.btnText}
+      ='\n'
+
+='\n'
+//end-payment

@@ -25,6 +25,7 @@ const Header = (() => {
       if (_userData.logged) {
         // header-cart
         const _userCart = `<span class="header__cart__total">16</span>`;
+        // console.log(_userCart);
 
         $('.header__cart').append(_userCart);
 

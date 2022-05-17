@@ -1,0 +1,40 @@
+/* ==========================================================================
+   Components Payment
+   ========================================================================== */
+
+.payment {
+  padding: 48px 0;
+  &__wrapper {
+    @include clearfix;
+  }
+  &__row {
+    margin-bottom: 24px;
+  }
+  &__img {
+    float: left;
+    width: 50%;
+    &__el {
+      display: block;
+      object-fit: cover;
+    }
+  }
+  &__img__bank {
+    
+  }
+  &__txt {
+    width: 50%;
+    float: right;
+    &__number {
+      display: inline-block;
+      vertical-align: middle;
+      width: 20px;
+    }
+    &__name {
+    }
+  }
+  &__btn {
+    text-align: center;
+    display: inline-block;
+    margin: 0 auto;
+  }
+}

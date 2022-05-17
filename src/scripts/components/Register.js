@@ -3,6 +3,9 @@
 @description: Register
 --------------------------------------------------------------------------------- */
 
+import {
+  API_URL,
+} from 'variables';
 
 // --- utilities
 import {
@@ -54,7 +57,7 @@ const Register = (() => {
     const _email = $('#email').val();
     const _password = $('#password').val();
     $.ajax({
-      url: 'https://x-api.alpha-x.id/v1/registration',
+      url: API_URL.register,
       type: 'POST',
       dataType: 'JSON',
       data: {

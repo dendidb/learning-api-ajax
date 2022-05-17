@@ -3,6 +3,10 @@
 @description: ProductsDetail
 --------------------------------------------------------------------------------- */
 
+import {
+  API_URL
+} from 'variables';
+
 // --- utilities
 import {
   Currency
@@ -14,8 +18,8 @@ const ProductsDetail = (() => {
   const handleProductDetail = () => {
     const _alias = location.hash.split('#')[1];
     $.ajax({
-      url: `https://x-api.alpha-x.id/v1/product-detail`,
-      type: 'POST',
+      url: API_URL.productDetail(_alias),
+      type: 'GET',
       data: {
         'alias': _alias
       },
@@ -107,7 +111,7 @@ const ProductsDetail = (() => {
         }
       },
       error: (data) => {
-        alert('Data Gagal di proses!');
+        alert('Data Gagal diproses!');
       }
     });
   }

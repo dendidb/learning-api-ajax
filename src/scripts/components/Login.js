@@ -3,6 +3,9 @@
 @description: Login
 --------------------------------------------------------------------------------- */
 
+import {
+  API_URL
+} from 'variables';
 
 // --- utilities
 import {
@@ -55,7 +58,7 @@ const Login = (() => {
     const _email = $('#email').val();
     const _password = $('#password').val();
     $.ajax({
-      url: 'https://x-api.alpha-x.id/v1/login',
+      url: API_URL.login,
       type: 'POST',
       dataType: 'JSON',
       data: {

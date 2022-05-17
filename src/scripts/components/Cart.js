@@ -3,6 +3,11 @@
 @description: Cart
 --------------------------------------------------------------------------------- */
 
+// --- variables
+import {
+  API_URL
+} from 'variables';
+
 // --- utilities
 import {
   Currency,
@@ -17,12 +22,12 @@ const Cart = (() => {
   const handleCart = () => {
     if (_userData) {
       if (_userData.logged) {
-        const _phone = '085222433981';
+        const _email = 'budidendi1234@gmail.com';
         $.ajax({
-          url: `https://x-api.alpha-x.id/v1/order-cart`,
+          url: API_URL.orderCart,
           type: 'POST',
           data: {
-            'phone': _phone
+            'email': _email
           },
           dataType: 'JSON',
           success: function(data) {
@@ -52,7 +57,7 @@ const Cart = (() => {
                 _cartItem += `<div class="cart__item">
                                 <div class="cart__tocol">
                                   <h5 class="cart__tocol__name">Indah Jaya Kaos</h5>
-                                  <h4 class="cart__tocol__location">Bandung</h4>
+                                  <h4 class="cart__tocol__location">${v.address}</h4>
                                 </div>
                                 <div class="cart__top">
                                   <div class="cart__img">
