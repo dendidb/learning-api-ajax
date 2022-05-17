@@ -28,16 +28,14 @@ const AddToCart = (() => {
           const _note = $('.js-note').val();
           const _email = _userData.email;
 
-          console.log(_email);
-
           $.ajax({
             url: API_URL.orderAdd,
             type: 'GET',
             data: {
               'productID': _id,
-              'email': _userData,
               'total': _total,
-              'note': _note
+              'note': _note,
+              'email': _userData
             },
             dataType: 'JSON',
             success: (data) => {

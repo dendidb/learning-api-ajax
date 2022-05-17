@@ -57,7 +57,7 @@ const Cart = (() => {
                 _cartItem += `<div class="cart__item">
                                 <div class="cart__tocol">
                                   <h5 class="cart__tocol__name">Indah Jaya Kaos</h5>
-                                  <h4 class="cart__tocol__location">${v.address}</h4>
+                                  <h4 class="cart__tocol__location">${v.location}</h4>
                                 </div>
                                 <div class="cart__top">
                                   <div class="cart__img">
