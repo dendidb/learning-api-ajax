@@ -3,6 +3,7 @@
 @description: Products
 --------------------------------------------------------------------------------- */
 
+// --- variables
 import {
   API_URL
 } from 'variables';
@@ -83,7 +84,6 @@ const Products = (() => {
   // --- init
   const init = () => {
     if ($('.products__list').length) {
-      // console.log(API_URL.product);
       handleProduct();
     }
   }

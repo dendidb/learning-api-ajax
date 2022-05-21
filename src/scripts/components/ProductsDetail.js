@@ -3,6 +3,7 @@
 @description: ProductsDetail
 --------------------------------------------------------------------------------- */
 
+// --- variables
 import {
   API_URL
 } from 'variables';
@@ -20,14 +21,10 @@ const ProductsDetail = (() => {
     $.ajax({
       url: API_URL.productDetail(_alias),
       type: 'GET',
-      data: {
-        'alias': _alias
-      },
       dataType: 'JSON',
       success: (data) => {
         if (data.code === 200) {
           const _data = data.data;
-          // console.log(_data);
           let _productDetail = '';
 
           // set discount
@@ -90,7 +87,7 @@ const ProductsDetail = (() => {
             <!--products-detail-form-->
             <div class="products-detail__form">
               <h6 class="products-detail__form__title">Pesan Produk</h6>
-              <form class="fi-form" action="#" method="get">
+              <form class="fi-form" action="#">
                 <div class="fi-row">
                   <label class="fi-label" for="total">Jumlah</label>
                   <button class="fi-sub btn js-qty-sub" type="button">-</button>
@@ -111,7 +108,7 @@ const ProductsDetail = (() => {
         }
       },
       error: (data) => {
-        alert('Data Gagal diproses!');
+        alert('Data Gagal di proses!');
       }
     });
   }

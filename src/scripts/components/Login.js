@@ -3,8 +3,10 @@
 @description: Login
 --------------------------------------------------------------------------------- */
 
+// --- variables
 import {
-  API_URL
+  API_URL,
+  WEB_URL
 } from 'variables';
 
 // --- utilities
@@ -81,7 +83,7 @@ const Login = (() => {
           // set session
           Session.set('userData', JSON.stringify(_data.data));
           // redirect page
-          location.href = "http://localhost:3000/index.html";
+          location.href = WEB_URL.home;
         }
       },
       error: (response) => {
@@ -95,7 +97,7 @@ const Login = (() => {
     const _userData = JSON.parse(Session.get('userData'));
     if (_userData) {
       if (_userData.logged) {
-        location.href = "http://localhost:3000/index.html";
+        location.href = WEB_URL.home;
       }
     } else {
       $('.js-main-site').removeClass('auth--hide');

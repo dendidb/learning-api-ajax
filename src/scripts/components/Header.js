@@ -3,9 +3,10 @@
 @description: Header
 --------------------------------------------------------------------------------- */
 
+// --- variables
 import {
   API_URL
-} from "../variables";
+} from 'variables';
 
 import {
   Session
@@ -20,15 +21,16 @@ const Header = (() => {
     Session.timeout(() => {
       Session.remove('userData');
       location.reload();
-    }, 10);
+    }, 1000);
   }
 
   // --- handleLoginHeader
   const handleLoginHeader = () => {
     if (_userData) {
       if (_userData.logged) {
-        const _email = 'budidendi1234@gmail.com';
-        let _userCart = '';
+
+        const _email = _userData.email;
+
         $.ajax({
           url: API_URL.orderCart,
           type: 'POST',
@@ -36,19 +38,17 @@ const Header = (() => {
             'email': _email
           },
           dataType: 'JSON',
-          success: function(data) {
+          success: (data) => {
             if (data.code === 200) {
               const _data = data.data;
-              if(_data.total !== 0) {
+              if (_data.total !== 0) {
                 // header-cart
-                _userCart = `<span class="header__cart__total">${_data.total}</
-                span>`;
+                const _userCart = `<span class="header__cart__total">${_data.total}</span>`;
+                $('.header__cart').append(_userCart);
               }
-              $('.header__cart').append(_userCart);
             }
           }
         });
-
 
         // header-profile
         $('.header__right .header__login').remove();
@@ -83,7 +83,7 @@ const Header = (() => {
   const handleLogout = () => {
     $('body').on('click', '.js-logout', (e) => {
       Session.remove('userData');
-      location.href = 'http://localhost:3000/index.html';
+      location.href = WEB_URL.home;
       e.preventDefault();
     });
   }
@@ -91,7 +91,7 @@ const Header = (() => {
   // --- init
   const init = () => {
     handleLoginHeader();
-    // handleCheckSession();
+    handleCheckSession();
     handleLogout();
   }
 

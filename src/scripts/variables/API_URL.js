@@ -3,11 +3,10 @@
 @description: API_URL
 --------------------------------------------------------------------------------- */
 
-const WEB_URL = 'http://localhost:3000/';
-const URL_BASE = 'https://x-api.alpha-x.id/';
+const URL_BASE = `https://x-api.alpha-x.id/`;
 
 export const API_URL = {
-  login: `${URL_BASE }v1/login`,
+  login: `${URL_BASE}v1/login`,
   registration: `${URL_BASE}v1/registration`,
   product: `${URL_BASE}v1/product`,
   productDetail: (alias) => {

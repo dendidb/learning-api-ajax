@@ -34,4 +34,17 @@
       background-color: color(red, 2);
     }
   }
+  &--order {
+    display: inline-block;
+    vertical-align: middle;
+    width: 100%;
+    padding: 8px 24px;
+    text-align: center;
+    background-color: color(red, 1);
+    color: color(white);
+    @include font-size(h6-b);
+    &:hover {
+      background-color: color(red, 2);
+    }
+  }
 }

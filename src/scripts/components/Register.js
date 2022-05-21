@@ -3,8 +3,10 @@
 @description: Register
 --------------------------------------------------------------------------------- */
 
+// --- variables
 import {
   API_URL,
+  WEB_URL
 } from 'variables';
 
 // --- utilities
@@ -57,7 +59,7 @@ const Register = (() => {
     const _email = $('#email').val();
     const _password = $('#password').val();
     $.ajax({
-      url: API_URL.register,
+      url: API_URL.registration,
       type: 'POST',
       dataType: 'JSON',
       data: {

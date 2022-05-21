@@ -3,12 +3,13 @@
 @description: AddToCart
 --------------------------------------------------------------------------------- */
 
-// --- utilities
+// --- variables
 import {
   API_URL,
   WEB_URL
 } from 'variables';
 
+// --- utilities
 import {
   Scrolllable,
   Session
@@ -24,18 +25,18 @@ const AddToCart = (() => {
       if (_userData) {
         if (_userData.logged) {
           const _id = $('.products-detail__top').attr('data-id');
-          const _total = $('.js-total').val();
-          const _note = $('.js-note').val();
           const _email = _userData.email;
+          const _total = Number($('.js-total').val());
+          const _note = $('.js-note').val();
 
           $.ajax({
             url: API_URL.orderAdd,
-            type: 'GET',
+            type: 'POST',
             data: {
               'productID': _id,
+              'email': _email,
               'total': _total,
-              'note': _note,
-              'email': _userData
+              'note': _note
             },
             dataType: 'JSON',
             success: (data) => {
@@ -59,12 +60,13 @@ const AddToCart = (() => {
               }
             },
             error: (data) => {
-              alert('Data Gagal diproses!');
+              alert('Data Gagal di proses!');
             }
           });
+
         }
       } else {
-        location.href = 'http://localhost:3000/login.html';
+        location.href = WEB_URL.login;
       }
       e.preventDefault();
     });
