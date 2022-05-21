@@ -125,4 +125,26 @@
       margin-right: 4px;
     }
   }
+  &__empty {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    &__img {
+      &__el {
+        margin-bottom: 32px;
+        // display: block;
+      }
+    }
+    &__btn {
+      text-align: center;
+    }
+    &__title {
+      @include font-size(h3);
+    }
+    &__desc {
+      margin-bottom: 32px;
+    }
+  }
 }

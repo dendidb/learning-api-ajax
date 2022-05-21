@@ -60,8 +60,18 @@ const Cart = (() => {
               // cart empty
               if (_data.total === 0) {
                 _cart = `<div class="cart__empty">
-                                      <h1 class="cart__title">Keranjang Kosong</h1>
-                                    </div>`;
+                          <div class="cart__empty__img">
+                            <img class="cart__empty__img__el" src="assets/img/bg/empty-cart.svg" alt="Empty Cart />
+                          </div>
+                          <div class="cart__empty__txt">
+                            <h1 class="cart__empty__title">Wah, Keranjang belanjamu kosong</h1>
+                            <p class="cart__empty__desc">Yuk, isi dengan barang-barang impianmu!</p>
+                          </div>
+                          <div class="cart__empty__btn">
+                            <a class="btn btn--order" href="http://localhost:3000/index.html">Mulai Belanja</a>
+                            </div>
+                          </div>
+                        </div>`;
               }
               $('.cart .container').html(_cart);
 
