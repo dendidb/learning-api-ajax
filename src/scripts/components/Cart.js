@@ -273,7 +273,6 @@ const Cart = (() => {
   // --- handleCheckbox
   const handleCheckbox = () => {
     $('body').on('click', '.js-checkbox', (e) => {
-      console.log('check');
       const _this = $(e.currentTarget);
       if (_this.hasClass('checked')) {
         _this.removeClass('checked').find('input').prop('checked', false);
@@ -290,7 +289,7 @@ const Cart = (() => {
       const _this = $(e.currentTarget);
       const _productID = [_this.parents('.cart__box').attr('data-id')];
 
-      if (confirm('Apakah anda yakin ingin menghapus produk ini di keranjang?')) {
+      if (confirm('Apakah Anda yakin ingin menghapus produk ini di keranjang?')) {
         $.ajax({
           url: API_URL.orderDelete,
           type: 'POST',
@@ -305,11 +304,20 @@ const Cart = (() => {
             }
           },
           error: (response) => {
-            alert('Data Gagal di proses!');
+            alert('Data Gagal diproses!');
           }
         });
       }
+
+      // --- handleClickMultipleDelete
+      let populatedID = [];
+      $('.js-cart-list input:checked').each((e) => {
+        const grid = $(e).parents('.cart__box').attr('data-id');
+        populatedID.push(getID);
+      });
+
     });
+
   }
 
   // init
