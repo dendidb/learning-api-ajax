@@ -1,10 +1,11 @@
 /* ==========================================================================
-   Components Index
+   Layouts Index
    ========================================================================== */
 
-@import 'form-input';
-@import 'form-row';
-@import 'products-item';
-@import 'cart-item';
-@import 'payment';
-@import 'cart';
+@import "header";
+@import "footer";
+@import "auth";
+@import "product";
+@import "product-detail";
+@import "cart";
+@import "checkout";

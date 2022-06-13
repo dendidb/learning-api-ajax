@@ -1,10 +1,9 @@
 /* ==========================================================================
-   Components Index
+   Variable: z-index
    ========================================================================== */
 
-@import 'form-input';
-@import 'form-row';
-@import 'products-item';
-@import 'cart-item';
-@import 'payment';
-@import 'cart';
+$z-index: (
+  header: 9,
+  header-burger-menu: 2,
+  modal: 5
+);

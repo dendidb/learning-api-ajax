@@ -1,0 +1,65 @@
+//-------------------------------------------------------------------------------
+  @name: product-detail
+  -------------------------------------------------------------------------------//
+
+// product-d
+.product-d
+  .container
+    .product-d__wrapper.js-product-detail
+      .product-d__image
+        .product-d__image__box
+          ='\n'
+          img.product-d__image__el(src="assets/img/dummy/"+data.image, alt=data.title)/
+      .product-d__content
+        h1.product-d__title !{data.title}
+        .product-d__review
+          i.mdi.mdi-star
+          span (667)
+        .discount
+          span.discount__percent 10%
+          s.discount__price Rp20.0000
+        h4.product-d__price
+          | Rp30.0000
+        .product-d__detail
+          h6.product-d__detail__title Detail
+          .product-d__detail__desc
+            p Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla, labore. Odio rem molestiae sit, sequi deserunt esse adipisci commodi ea eos, eligendi fuga, dolorum laudantium enim dolores ducimus. Temporibus, incidunt.
+        .product-d__store
+          .product-d__store__img
+            ='\n'
+            img.product-d__store__img__el(src="assets/img/dummy/"+data.image, alt=data.title)/
+          .product-d__store__txt
+            p.product-d__store__name
+              | freemir Official Store
+            p.product-d__store__location
+              | Bandung
+        .product-d__checkout
+          h6.product-d__checkout__title Pesan Produk
+          .product-d__checkout__form
+            input(type="hidden" class="js-product-id" name="product_id")/
+            .fi-row
+              ='\n'
+              label(class='fi-label' for='qty') Jumlah
+              ='\n'
+            .fi-row
+              .qty.js-qty
+                ='\n'
+                span.qty__btn.qty__btn--dec.mdi.mdi-minus.qtybtn
+                ='\n'
+                input.qty__inp(type="number" name="qty" min="1" value="1")/
+                ='\n'
+                span.qty__btn.qty__btn--inc.mdi.mdi-plus.qtybtn
+                ='\n'
+            .fi-row
+              label(class='fi-label' for='none') Catatan
+              textarea(class='fi-multiline js-note' id='none' name='note')
+            .fi-row
+              button.btn.btn--primary.btn--block.js-show-modal(type='button' data-target="cart-modal")
+                ='\n'
+                i.mdi.mdi-plus
+                | Keranjang
+
+include ../components/modal.pug
+
+
+

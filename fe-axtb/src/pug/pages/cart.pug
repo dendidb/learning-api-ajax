@@ -1,0 +1,11 @@
+extends ../templates/default.pug
+
+//- Head
+block siteHeader
+  -
+    navActive = "cart";
+    siteTitle = 'Keranjang';
+
+//- Body
+block siteContent
+  include ../layouts/cart.pug

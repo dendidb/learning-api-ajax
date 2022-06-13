@@ -1,0 +1,44 @@
+//-------------------------------------------------------------------------------
+  @name: cart
+  -------------------------------------------------------------------------------//
+
+//cart
+.section.cart
+  .container
+    .cart__wrapper
+      //- .cart__img
+      //-   ='\n'
+      //-   img.cart__img__el(src='https://assets.tokopedia.net/assets-tokopedia-lite/v2/zeus/kratos/60adc47d.jpg' alt='empty cart')/
+      //- .cart__txt
+      //-   h2.cart__txt__ttl
+      //-     | Wah, keranjang belanjamu kosong
+      //-   p.cart__txt__desc
+      //-     | Yuk, isi dengan barang-barang impianmu!
+      //-   ='\n'
+      //-   a.btn.btn--primary(href='index.html')
+      //-     | Mulai Belanja
+      .cart__left
+        .cart__head
+          h1.cart__ttl
+            | Keranjang
+          .cart__head__left
+            .checkbox
+              ='\n'
+              label.checkbox__lbl(for="check-all-items")
+                ='\n'
+                input(type='checkbox' id='check-all-items' class='js-select-all-products')/
+                ='\n'
+                span.checkbox__area
+                ='\n'
+              ='\n'
+              label.checkbox__desc(for="check-all-items")
+                | Pilih Semua
+          .cart__head__right
+            ='\n'
+            button.btn-text.js-delete-all-products(type='button')
+              | Hapus
+        .cart__list.js-cart-list
+          //- each val, idx in [0,1,2,3]
+          //-   include ../components/cart-item.pug
+      .cart__right.js-cart-summary
+        include ../components/cart-summary.pug

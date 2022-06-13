@@ -1,10 +1,9 @@
 /* ==========================================================================
-   Components Index
+   Project Index
    ========================================================================== */
 
-@import 'form-input';
-@import 'form-row';
-@import 'products-item';
-@import 'cart-item';
-@import 'payment';
-@import 'cart';
+@import "init/_index";
+@import "components/_index";
+@import "elements/_index";
+@import "layouts/_index";
+@import "pages/_index";

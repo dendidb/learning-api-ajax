@@ -1,10 +1,8 @@
 /* ==========================================================================
-   Components Index
+   Mixin Font Size
    ========================================================================== */
 
-@import 'form-input';
-@import 'form-row';
-@import 'products-item';
-@import 'cart-item';
-@import 'payment';
-@import 'cart';
+@mixin font-size($name) {
+  font-size: fz(#{$name});
+  line-height: lh(#{$name});
+}

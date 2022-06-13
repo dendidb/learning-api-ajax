@@ -1,10 +1,8 @@
 /* ==========================================================================
-   Components Index
+   Mixins Index
    ========================================================================== */
 
-@import 'form-input';
-@import 'form-row';
-@import 'products-item';
-@import 'cart-item';
-@import 'payment';
-@import 'cart';
+@import "responsive";
+@import "font-size";
+@import "font-icon";
+@import "shadow";

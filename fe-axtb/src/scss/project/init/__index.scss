@@ -1,10 +1,9 @@
 /* ==========================================================================
-   Components Index
+   Init Index
    ========================================================================== */
 
-@import 'form-input';
-@import 'form-row';
-@import 'products-item';
-@import 'cart-item';
-@import 'payment';
-@import 'cart';
+@import "fonts";
+@import "variables/_index";
+@import "mixins/_index";
+@import "default";
+@import "grid/_index";

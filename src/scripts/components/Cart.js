@@ -46,7 +46,7 @@ const Cart = (() => {
               let _cart = `<div class="cart__left">
                             <h1 class="cart__title">Keranjang</h1>
                             <div class="cart__check-all">
-                              <div class="checkbox js-checkbox">
+                              <div class="cart__checkbox js-checkbox">
                                 <i class="fi fi-tick"></i>
                                 <input type="checkbox" />
                               </div>

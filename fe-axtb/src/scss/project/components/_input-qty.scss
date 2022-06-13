@@ -1,0 +1,42 @@
+/* ==========================================================================
+   Components: quantity
+   ========================================================================== */
+
+   .qty {
+    font-size: 0;
+    &__inp,
+    &__btn {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    &__btn {
+      text-decoration: none;
+      border-radius: 2px;
+      @include font-size(small);
+      line-height: 1;
+      outline: 0;
+      padding: 4px;
+      border: 1px solid color(grey, 2);
+      color: color(grey, 1);
+      background-color: color(white);
+      transition: all .3s ease;
+      cursor: pointer;
+      @include remove-tap-highlight;
+      &:hover,
+      &:active {
+        color: color(white);
+        background-color: color(grey, 2);
+      }
+      &:active {
+        background-color: color(grey, 1);
+      }
+    }
+    &__inp {
+      text-align: center;
+      width: 32px;
+      padding: 0;
+      border: 0;
+      outline: 0;
+      @include font-size(label);
+    }
+  }

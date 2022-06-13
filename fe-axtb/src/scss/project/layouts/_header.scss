@@ -1,0 +1,169 @@
+/* ==========================================================================
+Layout: Header
+========================================================================== */
+
+.header {
+  $h: &;
+  position: fixed;
+  width: 100%;
+  background-color: color(white);
+  padding: 16px 0;
+  transition: all 0.4s ease;
+  @include shadow(4);
+  z-index: zi(header);
+  &__content {
+    position: relative;
+    @include clearfix;
+  }
+  &__left {
+    float: left;
+  }
+  &__logo {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 60px;
+    transition: all 0.3s ease;
+    @include medium {
+      padding: 0;
+      margin-right: 0;
+    }
+    @include small {
+      padding: 4px 0;
+    }
+    &__el {
+      height: 40px;
+      display: block;
+      @include small {
+        height: 32px;
+      }
+    }
+  }
+  &__search {
+    display: inline-block;
+    vertical-align: middle;
+    .fi-single-line {
+      @include font-size(label);
+      padding: 8px 16px;
+      background-color: color(grey, 3);
+      border-color: color(grey, 3);
+      width: 400px;
+    }
+  }
+  &__right {
+    float: right;
+    font-size: 0;
+  }
+  &__cart {
+    text-decoration: none;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 24px;
+    position: relative;
+    &__total {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: color(primary, 1);
+      color: color(white);
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      font-size: .8rem;
+      font-weight: fw(bold);
+      line-height: 1;
+      text-align: center;
+      padding: 3px;
+    }
+    i {
+      font-size: 3.2rem;
+      line-height: 1;
+      display: block;
+    }
+  }
+  &__profile {
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    &:hover {
+      #{$h}__dropdown {
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+      }
+    }
+  }
+  &__user {
+    font-size: 0;
+    &__avatar {
+      width: 40px;
+      height: 40px;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 8px;
+      &__el {
+        border-radius: 50%;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top;
+      }
+    }
+    &__name {
+      margin-bottom: 0;
+      display: inline-block;
+      vertical-align: middle;
+      font-weight: fw(regular);
+      color: color(grey, 1);
+      @include font-size(label);
+    }
+  }
+  &__dropdown {
+    position: absolute;
+    top: 72px;
+    width: 140px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    padding: 24px 16px;
+    list-style: none;
+    margin-bottom: 0;
+    background-color: color(white);
+    border-radius: 0 0 8px 8px;
+    transition: all .2s ease;
+    @include shadow(4);
+    &__item {
+      margin-bottom: 20px;
+      line-height: 1;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    &__link {
+      text-decoration: none;
+      color: color(grey, 1);
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 0;
+      transition: all .3s ease;
+      &:hover {
+        color: color(primary, 1);
+        .fi {
+          color: color(primary, 1);
+        }
+      }
+      span {
+        display: inline-block;
+        vertical-align: middle;
+        @include font-size(small);
+      }
+    }
+    .mdi {
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 8px;
+      color: color(grey, 8);
+      font-size: 1.6rem;
+      transition: all .3s ease;
+    }
+  }
+}

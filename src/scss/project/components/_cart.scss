@@ -1,0 +1,94 @@
+/* ==========================================================================
+   Layouts Cart
+   ========================================================================== */
+
+.cart {
+  $c: &;
+  padding-bottom: 48px;
+  .container {
+    display: flex;
+  }
+  &__left {
+    flex: 1;
+    margin-right: 48px;
+  }
+  &__right {
+    margin-left: auto;
+    margin-top: 24px;
+  }
+  &__title {
+    @include font-size(h4);
+    color: color(grey, 1);
+    margin-bottom: 16px;
+  }
+  &__check-all {
+    display: flex;
+    align-items: center;
+    padding-bottom: 12px;
+    border-bottom: 2px solid color(grey, d);
+    &__title {
+      margin-bottom: 0;
+      @include font-size(label);
+      font-weight: fw(regular);
+    }
+    &__delete {
+      margin-left: auto;
+      font-weight: fw(bold);
+      color: color(red, 1);
+      @include font-size(label);
+      opacity: 0;
+      visibility: hidden;
+      .has-checked & {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+  #{$c} {
+    &__group {
+      padding-top: 24px;
+    }
+  }
+  .fi {
+    &-sub,
+    &-add {
+      @include font-size(h5);
+      border: 1px solid color(grey, c);
+      border-radius: 2px;
+      width: 16px;
+      line-height: 1.4rem;
+      color: color(grey, 8);
+      font-weight: fw(regular);
+      display: inline-block;
+      vertical-align: middle;
+    }
+    &-qty {
+      @include font-size(label);
+      width: 16px;
+      padding: 0;
+      border: 0;
+      line-height: 1;
+      background-color: transparent;
+      text-align: center;
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 4px;
+      margin-right: 4px;
+    }
+  }
+  &__empty {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    &__img {
+      margin-bottom: 32px;
+    }
+    &__subtitle {
+      margin-bottom: 40px;
+      color: color(grey, 1);
+    }
+    .btn {
+      min-width: 300px;
+    }
+  }
+}
